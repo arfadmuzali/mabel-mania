@@ -53,7 +53,7 @@ export async function GET(request) {
         AND: [
           {
             name: {
-              search: q,
+              contains: q,
             },
           },
           {
@@ -84,7 +84,7 @@ export async function GET(request) {
   const products = await prisma.product.findMany({
     where: {
       name: {
-        search: q,
+        contains: q,
       },
     },
     include: {
